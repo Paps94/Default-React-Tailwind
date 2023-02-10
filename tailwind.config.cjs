@@ -25,6 +25,9 @@ module.exports = {
 				'rotate': 'rotation 1.5s linear infinite',
 				'point': 'bounce 1s infinite ease-in-out',
 			},
+			boxShadow: {
+				'navbar': '0 3px 5px rgb(0 0 0 / 10%)',
+			}
 		},
 		screens: {
 			'sm': '640px',
