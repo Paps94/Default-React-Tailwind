@@ -75,3 +75,31 @@
 /**
     End of ScrollToTop Css
 */
+
+/**
+    SideNavbar
+*/
+a.active:before, ul li a:hover:before {
+  width: 100%;
+}
+
+.active span:first-child {
+  top: 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.active span:nth-child(2) {
+  left: 50%;
+  width: 0;
+}
+
+.active span:nth-child(3) {
+  top: 15px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+/**
+    End of SideNavbar
+*/

@@ -10,7 +10,7 @@ import "aos/dist/aos.css";
 import Intro from './components/Intro';
 import Loader from './components/Loader';
 import WorkArea from './components/WorkArea';
-import Sidebar from "./components/navbar/Sidebar";
+import VerticalNavbar from "./components/navbar/VerticalNavbar";
 
 
 function App() {
@@ -55,15 +55,15 @@ function App() {
 		<button
 			type="button"
 			onClick={handleThemeSwitch}
-			className="fixed z-10 top-[20px] right-[15px] w-[55px] h-[55px] bg-[#1a1a1a] dark:bg-[#f5f8fc] rounded-full"
+			className="fixed top-[20px] right-[15px] w-[55px] h-[55px] bg-[#1a1a1a] dark:bg-[#f5f8fc] rounded-full xl:bottom-auto xl:h-12 xl:w-12 xl:left-auto xl:top-[13px] xl:right-[80px] z-[99]"
 			data-aos="fade-down-left"
 			data-aos-duration="1500"
 		>
 			{theme === 'dark' ? sun : moon}
 		</button>
-		<div className="bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-300 min-h-screen font-inter ">
+		<div className="bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-300 min-h-screen font-inter pl-[320px]">
 			{/* <Intro /> */}
-			<Sidebar />
+			<VerticalNavbar />
 			{/* <WorkArea /> */}
 			<Loader />
 				
