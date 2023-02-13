@@ -2,6 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --red: #e63b2e;           /* Group 1 */
+  --orange: #fb8c00;        /* Group 2 */
+  --yellow: #fdd835;        /* Group 3 */
+  --green: #43a047;         /* Group 4 */
+  --blue: #1E88E5;          /* Group 5 */
+  --indigo: #3949ab;        /* Group 6 */
+  --violet: #9C27B0;        /* Group 7 */
+
+  /* Group 1 */
+  --g1c1: var(--red);
+  --g1c2: #e15634;
+  --g1c3: #ff7733;
+  --g1c4: #f85a3e;
+  --g1c5: #e1e6e1;
+
+  /* Group 2 */
+  --g1c1: var(--orange);
+  --g2c2: #ef6c00;
+  --g2c3: #1565c0;
+  --g2c4: #1e88e5;
+  --g2c5: #ffffff;
+
+  /* Group 3 */
+  --g3c1: var(--yellow);
+  --g3c2: #f8dd68;
+  --g3c3: #599bb2;
+  --g3c4: #1bbcce;
+  --g3c5: #6fdbec;
+
+  /* Group 4 */
+  --g4c1: var(--green);
+  --g4c2: #c0ca33;
+  --g4c3: #fdd835;
+  --g4c4: #fb8c00;
+  --g4c5: #f4511e;
+  
+  /* Group 5 */
+  --g5c1: var(--blue);
+  --g5c2: #bbdefb;
+  --g5c3: #fcd3de;
+  --g5c4: #bcced6;
+  --g5c5: #f2f7f9;    
+
+  /* Group 6 */
+  --g6c1: var(--indigo);
+  --g6c2: #7890cd;
+  --g6c3: #212d74;
+  --g6c4: #f8f1ff;
+  --g6c5: #ffd9da;    
+
+  /* Group 7 */
+  --g7c1: var(--violet);
+  --g7c2: #c77dff;
+  --g7c3: #e0aaff;
+  --g7c4: #efd9ce;
+  --g7c5: #f3e5f5;
+
+  --white: #fff;
+  --black: #000;
+
+  --theme-colour-1: var(--white);
+  --theme-colour-2: var(--white);
+  --theme-colour-3: var(--white);
+  --theme-colour-4: var(--white);
+  --theme-colour-5: var(--white);
+
+}
+
 /**
     ScrollToTop Css
 */
@@ -102,4 +171,185 @@ a.active:before, ul li a:hover:before {
 
 /**
     End of SideNavbar
+*/
+
+/**
+    Colour Group
+*/
+.theme-picker-group > input:before,
+.theme-picker-group > input:after,
+.theme-picker-pallet > input:before,
+.theme-picker-pallet > input:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  z-index: 2;
+}
+
+.theme-picker-group > input:after,
+.theme-picker-pallet > input:after {
+  height: 104%;
+  width: 104%;
+}
+
+.theme-picker-group > input:before,
+.theme-picker-pallet > input:before {
+  display: none;
+  height: 120%;
+  width: 120%;
+  border: 0.2rem solid var(--white);
+}
+
+.theme-picker-group > input:not(:checked):hover:before,
+.theme-picker-group > input:not(:checked):active:before {
+  display: block;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.theme-picker-group > input:checked:before {
+  display: block;
+  border-color: rgb(255, 255, 255);
+}
+
+.theme-picker-group > input[value="white"]:after {
+  background-color: var(--white);
+}
+
+.theme-picker-group > input[value="red"]:after {
+  background-color: var(--red);
+}
+
+.theme-picker-group > input[value="orange"]:after {
+  background-color: var(--orange);
+}
+
+.theme-picker-group > input[value="yellow"]:after {
+  background-color: var(--yellow);
+}
+
+.theme-picker-group > input[value="green"]:after {
+  background-color: var(--green);
+}
+
+.theme-picker-group > input[value="blue"]:after {
+  background-color: var(--blue);
+}
+
+.theme-picker-group > input[value="indigo"]:after {
+  background-color: var(--indigo);
+}
+
+.theme-picker-group > input[value="violet"]:after {
+  background-color: var(--violet);
+}
+
+/* Display group colours on hover and when checked */
+.theme-picker-group > input:hover~div,
+.theme-picker-group >input:checked~div {
+  display: flex;
+}
+
+/* Group 1 (red) */
+.theme-picker-pallet input[value="g1c2"]:after {
+  background-color: var(--g1c2);
+}
+.theme-picker-pallet > input[value="g1c3"]:after {
+  background-color: var(--g1c3);
+}
+.theme-picker-pallet > input[value="g1c4"]:after {
+  background-color: var(--g1c4);
+}
+.theme-picker-pallet > input[value="g1c5"]:after {
+  background-color: var(--g1c5);
+}
+
+/* Group 2 (orange) */
+.theme-picker-pallet input[value="g2c2"]:after {
+  background-color: var(--g2c2);
+}
+.theme-picker-pallet > input[value="g2c3"]:after {
+  background-color: var(--g2c3);
+}
+.theme-picker-pallet > input[value="g2c4"]:after {
+  background-color: var(--g2c4);
+}
+.theme-picker-pallet > input[value="g2c5"]:after {
+  background-color: var(--g2c5);
+}
+
+/* Group 3 (yellow) */
+.theme-picker-pallet input[value="g3c2"]:after {
+  background-color: var(--g3c2);
+}
+.theme-picker-pallet > input[value="g3c3"]:after {
+  background-color: var(--g3c3);
+}
+.theme-picker-pallet > input[value="g3c4"]:after {
+  background-color: var(--g3c4);
+}
+.theme-picker-pallet > input[value="g3c5"]:after {
+  background-color: var(--g3c5);
+}
+
+/* Group 4 (green) */
+.theme-picker-pallet input[value="g4c2"]:after {
+  background-color: var(--g4c2);
+}
+.theme-picker-pallet > input[value="g4c3"]:after {
+  background-color: var(--g4c3);
+}
+.theme-picker-pallet > input[value="g4c4"]:after {
+  background-color: var(--g4c4);
+}
+.theme-picker-pallet > input[value="g4c5"]:after {
+  background-color: var(--g4c5);
+}
+
+/* Group 5 (blue) */
+.theme-picker-pallet input[value="g5c2"]:after {
+  background-color: var(--g5c2);
+}
+.theme-picker-pallet > input[value="g5c3"]:after {
+  background-color: var(--g5c3);
+}
+.theme-picker-pallet > input[value="g5c4"]:after {
+  background-color: var(--g5c4);
+}
+.theme-picker-pallet > input[value="g5c5"]:after {
+  background-color: var(--g5c5);
+}
+
+/* Group 6 (indigo) */
+.theme-picker-pallet input[value="g6c2"]:after {
+  background-color: var(--g6c2);
+}
+.theme-picker-pallet > input[value="g6c3"]:after {
+  background-color: var(--g6c3);
+}
+.theme-picker-pallet > input[value="g6c4"]:after {
+  background-color: var(--g6c4);
+}
+.theme-picker-pallet > input[value="g6c5"]:after {
+  background-color: var(--g6c5);
+}
+
+/* Group 7 (violet) */
+.theme-picker-pallet input[value="g7c2"]:after {
+  background-color: var(--g7c2);
+}
+.theme-picker-pallet > input[value="g7c3"]:after {
+  background-color: var(--g7c3);
+}
+.theme-picker-pallet > input[value="g7c4"]:after {
+  background-color: var(--g7c4);
+}
+.theme-picker-pallet > input[value="g7c5"]:after {
+  background-color: var(--g7c5);
+}
+
+/**
+    End of Colour Group
 */
