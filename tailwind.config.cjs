@@ -30,6 +30,7 @@ module.exports = {
 			},
 			boxShadow: {
 				'navbar': '0 3px 5px rgb(0 0 0 / 10%)',
+				'main': 'rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px'
 			}
 		},
 		screens: {

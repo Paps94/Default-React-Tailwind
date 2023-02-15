@@ -205,7 +205,6 @@ a.active:before, ul li a:hover:before {
 
 .theme-picker-group > input:not(:checked):hover:before,
 .theme-picker-group > input:not(:checked):active:before {
-  display: block;
   border-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -247,8 +246,9 @@ a.active:before, ul li a:hover:before {
 }
 
 /* Display group colours on hover and when checked */
-.theme-picker-group > input:hover~div,
-.theme-picker-group >input:checked~div {
+/* .theme-picker-group > input:hover~div,
+.theme-picker-group >input:checked~div { */
+.theme-picker-group > input:hover~div {
   display: flex;
 }
 

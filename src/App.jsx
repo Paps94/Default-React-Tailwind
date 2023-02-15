@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 
 import Intro from './components/Intro';
 import Loader from './components/Loader';
-import WorkArea from './components/WorkArea';
+import Main from './components/Main';
 import BasicModal from './components/modal/BasicModal';
 import VerticalNavbar from "./components/navbar/VerticalNavbar";
 import ColourPallet from './components/misc/ColourPallet';
@@ -63,9 +63,10 @@ function App() {
 		>
 			{theme === 'dark' ? sun : moon}
 		</button>
-		<div className="bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-300 min-h-screen font-inter pl-[320px]">
+		<div className="bg-[#dbdbdb] dark:bg-[#dbdbdb] text-stone-900 dark:text-stone-300 min-h-screen font-inter pl-[320px]">
 			{/* <Intro /> */}
 			<VerticalNavbar />
+			<Main />
 			<ColourPallet />
 
 			

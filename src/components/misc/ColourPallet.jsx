@@ -18,7 +18,7 @@ const ColourPallet = () => {
 	}
 
     const palletGroups = [
-        { colour: "red", group: "g1", top: 12},
+        { colour: "red", group: "g1", top: "12%"},
         { colour: "orange", group: "g2", top: 24},
         { colour: "yellow", group: "g3", top: 63},
         { colour: "green", group: "g4", top: 48},
@@ -37,7 +37,7 @@ const ColourPallet = () => {
             {palletGroups.map((val, i) => (
                 <div className='theme-picker-group' key={i}>
                 <input className="h-[1.8rem] w-[1.8rem] relative cursor-pointer m-0 after:h-[104%] after:w-[104%] before:hidden before:h-[120%] before:w-[120%] before:border-[0.2rem] before:border-solid before:border-[white] checked:before:block" type="radio" name='theme' value={val.colour} data-group={val.group} onClick={handleColourSwitch} />
-                  <div className={'theme-picker-pallet bg-[rgba(50,50,50,0.2)] backdrop-blur-[3px] border hidden items-center flex-row-reverse gap-4 p-4 rounded-[0.3rem] border-solid border-[rgba(255,255,255,0.1)] absolute right-16 top-[' + val.top + '%]'}>
+                  <div className={'theme-picker-pallet bg-[rgba(50,50,50,0.2)] backdrop-blur-[3px] border items-center flex-col gap-4 p-4 rounded-[0.3rem] border-solid border-[rgba(255,255,255,0.1)] absolute right-16 top-[50%] translate-y-[-50%] hidden'}>
                       <input className="h-[1.6rem] w-[1.6rem] relative m-0 after:h-[104%] after:w-[104%] before:hidden before:h-[120%] before:w-[120%] before:border-[0.2rem] before:border-solid before:border-[white] checked:before:block" type="radio" name='theme' value={val.group + 'c2'}/>
                       <input className="h-[1.6rem] w-[1.6rem] relative m-0 after:h-[104%] after:w-[104%] before:hidden before:h-[120%] before:w-[120%] before:border-[0.2rem] before:border-solid before:border-[white] checked:before:block" type="radio" name='theme' value={val.group + 'c3'}/>
                       <input className="h-[1.6rem] w-[1.6rem] relative m-0 after:h-[104%] after:w-[104%] before:hidden before:h-[120%] before:w-[120%] before:border-[0.2rem] before:border-solid before:border-[white] checked:before:block" type="radio" name='theme' value={val.group + 'c4'}/>

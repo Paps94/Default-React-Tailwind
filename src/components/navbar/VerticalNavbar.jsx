@@ -25,7 +25,7 @@ const VerticalNavbar = () => {
   const handleClick = () => setClick(!click);
   return (
     <>
-      <div className="hidden fixed right-[20px] top-[13px] z-[96] xl:block">
+      <div className="hidden fixed right-[20px] top-[13px] z-[96] xl:block ">
         <button className="cursor-pointer h-12 ml-auto p-0 relative w-12 bg-black border-none rounded-full dark:bg-white" onClick={handleClick}>
           <div className={click ? "active" : ""}>
             <span className="bottom-0 bg-white duration-300 text-white h-0.5 left-0 m-auto absolute right-0 w-6 top-[-15px] dark:bg-[#111319] .active:rotate-45 .active:top-0"></span>
@@ -35,7 +35,7 @@ const VerticalNavbar = () => {
         </button>
       </div>
       {/* End Mobile Header */}
-      <div className={click ? "bg-white shadow-navbar h-screen left-0 fixed transition-all duration-500 w-[320px] z-[96] dark:bg-black dark:shadow-none menu-open" : "xl:translate-x-[-100%] shadow-navbar h-screen left-0 fixed transition-all duration-500 w-[320px] z-[96] dark:bg-black dark:shadow-none"}>
+      <div className={click ? " shadow-navbar h-screen fixed left-[20px] transition-all duration-500 w-[320px] z-[96] bg-gradient-to-b from-[#FFAFBD] to-[#FFC3A0] dark:bg-gradient-to-b dark:from-[#414141] dark:to-[#121212] dark:shadow-none menu-open" : "xl:translate-x-[-100%] shadow-main fixed left-8 top-8 bottom-8 rounded-md transition-all duration-500 w-[320px] z-[96] bg-gradient-to-l from-[#FFAFBD] to-[#FFC3A0] dark:bg-gradient-to-l dark:from-[#414141] dark:to-[#121212] dark:shadow-none"}>
         <div className="">
           <div className="clear-both flex float-left h-auto p-10 w-full border-b border-solid border-[#cbd3d9]">
               <img
