@@ -1,17 +1,8 @@
 import { useContext } from "react";
 import { StylingContext } from "../contexts/StylingContext";
-import useWindowDimensions from "../customHooks/useWindowDimensions";
-
 
 const Main = (props) => {
    const { navbar } = useContext(StylingContext);
-   const { width } = useWindowDimensions();
-
-   // let left = 'left-[24rem]';
-   console.log('Navbar in Main: ' + navbar);
-   // if (width < 1280 && !navbar) {
-   //    left = 'left-[9rem]';
-   // }
 
    let left = 'left-[24rem]';
    if (!navbar) {

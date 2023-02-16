@@ -12,10 +12,13 @@ import Main from './components/Main';
 import BasicModal from './components/modal/BasicModal';
 import VerticalNavbar from "./components/navbar/VerticalNavbar";
 import OptionsNavbar from "./components/navbar/OptionsNavbar";
-import ColourPallet from './components/misc/ColourPallet';
+
 
 
 function App() {
+	var style = getComputedStyle(document.body);
+	let themeColour = style.getPropertyValue('--theme-colour-1');
+	
 	const [theme, setTheme] = useState('dark');
 	const [navbar, setNavbar] = useState(false);
 
@@ -68,7 +71,6 @@ function App() {
 				<OptionsNavbar />
 			</StylingContext.Provider>
 			
-			{/* <ColourPallet /> */}
 
 			
 
