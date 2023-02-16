@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { StylingContext } from "../../contexts/StylingContext";
+
 import ScrollspyNav from "react-scrollspy-nav";
 
 // logo name
@@ -21,7 +23,8 @@ const sidebarFooterContent = {
 
 const VerticalNavbar = () => {
 
-  const [click, setClick] = useState(false);
+  const {click, setClick} = useContext(StylingContext);
+
   const handleClick = () => setClick(!click);
   return (
     <>
@@ -35,7 +38,7 @@ const VerticalNavbar = () => {
         </button>
       </div>
       {/* End Mobile Header */}
-      <div className={click ? " shadow-navbar h-screen fixed left-[20px] transition-all duration-500 w-[320px] z-[96] bg-gradient-to-b from-[#FFAFBD] to-[#FFC3A0] dark:bg-gradient-to-b dark:from-[#414141] dark:to-[#121212] dark:shadow-none menu-open" : "xl:translate-x-[-100%] shadow-main fixed left-8 top-8 bottom-8 rounded-md transition-all duration-500 w-[320px] z-[96] bg-gradient-to-l from-[#FFAFBD] to-[#FFC3A0] dark:bg-gradient-to-l dark:from-[#414141] dark:to-[#121212] dark:shadow-none"}>
+      <div className={click ? " shadow-navbar fixed left-8 top-8 bottom-8 rounded-md transition-all duration-500 w-[320px] z-[96] bg-gradient-to-b from-[#FFAFBD] to-[#FFC3A0] dark:bg-gradient-to-b dark:from-[#414141] dark:to-[#121212] dark:shadow-none menu-open" : "xl:translate-x-[-150%] shadow-main fixed left-8 top-8 bottom-8 rounded-md transition-all duration-500 w-[320px] z-[96] bg-gradient-to-l from-[#FFAFBD] to-[#FFC3A0] dark:bg-gradient-to-l dark:from-[#414141] dark:to-[#121212] dark:shadow-none"}>
         <div className="">
           <div className="clear-both flex float-left h-auto p-10 w-full border-b border-solid border-[#cbd3d9]">
               <img

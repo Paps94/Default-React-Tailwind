@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
+import { StylingContext } from './contexts/StylingContext';
 
 import AnimatedCursor from "react-animated-cursor";		//Animate our cursor
 import ScrollToTop from "./components/ScrollToTop";		//Our component that adds the QoL improvement to scroll tto the top after 250 units
@@ -17,6 +18,8 @@ import ColourPallet from './components/misc/ColourPallet';
 
 function App() {
 	const [theme, setTheme] = useState('dark');
+	const [click, setClick] = useState(false);
+
 
 	useEffect(() => {
 		//Initialize AOS library on page load
@@ -65,8 +68,11 @@ function App() {
 		</button>
 		<div className="bg-[#dbdbdb] dark:bg-[#dbdbdb] text-stone-900 dark:text-stone-300 min-h-screen font-inter pl-[320px]">
 			{/* <Intro /> */}
-			<VerticalNavbar />
-			<Main />
+			<StylingContext.Provider value={{click, setClick}}>
+				<VerticalNavbar />
+				<Main />
+			</StylingContext.Provider>
+			
 			<ColourPallet />
 
 			
