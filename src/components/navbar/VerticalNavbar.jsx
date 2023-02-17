@@ -100,15 +100,18 @@ const VerticalNavbar = () => {
                         src={`img/navbar/${val.icon}.svg`}
                         alt="icon"
                       />
-                      <ReactTooltip
-                        id='navbarTooltip'
-                        place="right"
-                        variant="light"
-                        noArrow="true"
-                        className="light-theme dark:text-white dark:bg-[#121212] dark:bg-opacity-50 dark:text-lg dark:tracking-wide dark:rounded-md"
-                      >
-                        <span>{val.itemName}</span>
-                      </ReactTooltip>
+                      {/* Only show the tooltip if the navbar is collapsed */}
+                      {!navbar && (
+                        <ReactTooltip
+                          id='navbarTooltip'
+                          place="right"
+                          variant="light"
+                          noArrow="true"
+                          className="light-theme dark:text-white dark:bg-[#121212] dark:bg-opacity-50 dark:text-lg dark:tracking-wide dark:rounded-md"
+                        >
+                          <span>{val.itemName}</span>
+                        </ReactTooltip>
+                       )}
                       {navbar ? val.itemName: ''}
                     </a>
                   </div>
