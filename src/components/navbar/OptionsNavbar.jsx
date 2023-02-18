@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { StylingContext } from "../../contexts/StylingContext";
+import { StylingContext } from "../../context/StylingContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import ColourPallet from "../misc/ColourPallet";
@@ -21,7 +21,7 @@ const OptionsNavbar = () => {
     <>
         
       {/* Right Navbar Option */}
-      <div className="flex flex-col justify-start items-center gap-2 py-4 shadow-main rounded-md fixed right-8 top-8 bottom-8 z-[96] w-20 bg-gradient-to-l from-[#FFAFBD] to-[#FFC3A0] dark:bg-gradient-to-l dark:from-[#414141] dark:to-[#121212]">
+      <div className="flex flex-col justify-start items-center gap-5 py-4 shadow-main rounded-md fixed right-8 top-8 bottom-8 z-[96] w-20 bg-gradient-to-l from-[#FFAFBD] to-[#FFC3A0] dark:bg-gradient-to-l dark:from-[#414141] dark:to-[#121212]">
           <button 
             className="cursor-pointer h-12 mx-auto p-0 relative w-12 bg-[#1a1a1a] border-none rounded-full dark:bg-[#f5f8fc]" 
             onClick={handleNavbarToggle}

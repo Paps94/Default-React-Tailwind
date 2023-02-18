@@ -1,0 +1,14 @@
+[
+    { 
+        "icon": "House",
+        "itemName": "Home", 
+        "itemRoute": "home", 
+        "activeClass": "active" 
+    },
+    { 
+        "icon": "modal", 
+        "itemName": "Modal", 
+        "itemRoute": "modal", 
+        "activeClass": "" 
+    }
+]

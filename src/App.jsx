@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
-import { StylingContext } from './contexts/StylingContext';
+import { StylingContext } from './context/StylingContext';
 
 import AnimatedCursor from "react-animated-cursor";		//Animate our cursor
 import ScrollToTop from "./components/ScrollToTop";		//Our component that adds the QoL improvement to scroll tto the top after 250 units

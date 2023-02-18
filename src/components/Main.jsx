@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { StylingContext } from "../contexts/StylingContext";
+import { StylingContext } from "../context/StylingContext";
 
 const Main = (props) => {
    const { navbar } = useContext(StylingContext);

@@ -1,18 +1,13 @@
 import React, { useContext } from "react";
-import { StylingContext } from "../../contexts/StylingContext";
+import { StylingContext } from "../../context/StylingContext";
 import ScrollspyNav from "react-scrollspy-nav";
 import { Tooltip as ReactTooltip } from 'react-tooltip';
+import navbarContent from '../../data/navbarData.json';
 
-// sidebar content
-const sidebarContent = [
-  { icon: "house", itemName: "Home", itemRoute: "home", activeClass: "active" },
-  { icon: "modal", itemName: "Modal", itemRoute: "modal", activeClass: "" },
-];
 
 // sidebar footer bottom content
 const sidebarFooterContent = {
-  avatar: "img/myImages/about.jpeg",
-  name: "Title",
+  name: "Title or smth",
   email: "Subititle or email",
   emailRef: "mailto:antreas.paps@yahoo.com?subject=Contact forms in websites should be banned!",
 };
@@ -21,9 +16,9 @@ const VerticalNavbar = () => {
   const {navbar, setNavbar, theme} = useContext(StylingContext);
 
   // Default is light mode logo
-  let logo = "tab_logo";
+  let logo = 'tab_logo.png';
   if (theme === 'dark') {
-    logo = "tab_logo_white";
+    logo = 'tab_logo_white.png';
   }
 
   // const handleNavbarToggle = () => setNavbar(!navbar);
@@ -54,7 +49,7 @@ const VerticalNavbar = () => {
               ? "max-w-[120px] mr-8 p-2 align-middle" 
               : "max-w-[120px] m-auto p-2 align-middle"
             }
-              src={`img/logo/${logo}.png`}
+              src={`../src/components/navbar/assets/img/logo/${logo}`}
               alt="brand"
             />
         </div>
@@ -79,7 +74,7 @@ const VerticalNavbar = () => {
             scrollDuration="100"
           >
             <ul className="list-none m-0 tooltip-parent">
-              {sidebarContent.map((val, i) => (
+              {navbarContent.map((val, i) => (
                 <li className="float-left w-full mt-0 mx-0 mb-2" key={i}  data-tooltip-id="navbarTooltip" data-tooltip-content={val.itemName} data-tooltip-place="right">
                   <div className="float-left mt-0 ml-0 mr-0 mb-2 w-full last:mb-0">
                     <a
@@ -97,7 +92,7 @@ const VerticalNavbar = () => {
                           ? "fill-none h-5 mr-4 w-5 transition-all duration-500 invert-[.3] dark:invert" 
                           : "fill-none h-8 mr-4 w-8 transition-all duration-500 invert-[.3] dark:invert" 
                         }
-                        src={`img/navbar/${val.icon}.svg`}
+                        src={`../src/components/navbar/assets/img/svg/${val.icon}.svg`}
                         alt="icon"
                       />
                       {/* Only show the tooltip if the navbar is collapsed */}
