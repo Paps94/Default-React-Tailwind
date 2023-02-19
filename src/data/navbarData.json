@@ -1,14 +1,12 @@
 [
     { 
-        "icon": "House",
-        "itemName": "Home", 
-        "itemRoute": "home", 
-        "activeClass": "active" 
+        "icon": "house",
+        "itemName": "home", 
+        "itemRoute": "/"
     },
     { 
-        "icon": "modal", 
-        "itemName": "Modal", 
-        "itemRoute": "modal", 
-        "activeClass": "" 
+        "icon": "card", 
+        "itemName": "card", 
+        "itemRoute": "/cards"
     }
 ]

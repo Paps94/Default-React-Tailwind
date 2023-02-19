@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { StylingContext } from "../../context/StylingContext";
-import ScrollspyNav from "react-scrollspy-nav";
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 import navbarContent from '../../data/navbarData.json';
+import { NavLink } from "react-router-dom";
 
 
 // sidebar footer bottom content
@@ -60,60 +60,57 @@ const VerticalNavbar = () => {
           ? "clear-both float-left h-auto py-14 px-10 w-full" 
           : "clear-both float-left h-auto py-6 px-3 w-full"
         }>
-          <ScrollspyNav
-            scrollTargetIds={[
-              "home",
-              "about",
-              "projects",
-              "blog",
-              "subordinates",
-              "contact",
-            ]}
-            activeNavClass="active"
-            offset={0}
-            scrollDuration="100"
-          >
-            <ul className="list-none m-0 tooltip-parent">
-              {navbarContent.map((val, i) => (
-                <li className="float-left w-full mt-0 mx-0 mb-2" key={i}  data-tooltip-id="navbarTooltip" data-tooltip-content={val.itemName} data-tooltip-place="right">
-                  <div className="float-left mt-0 ml-0 mr-0 mb-2 w-full last:mb-0">
-                    <a
-                      href={`#${val.itemRoute}`}
+          <ul className="list-none m-0 tooltip-parent">
+            {navbarContent.map((val, i) => (
+              <li className="float-left w-full mt-0 mx-0 mb-2" key={i}  data-tooltip-id="navbarTooltip" data-tooltip-content={val.itemName} data-tooltip-place="right">
+                <div className="float-left mt-0 ml-0 mr-0 mb-2 w-full last:mb-0">
+                  <NavLink 
+                    to={val.itemRoute}
+                    className={({isActive}) => {
+                      return (
+                        'dark:text-white dark:before:bg-[#7A7A7A] active:before:w-full before:bg-[#F1F1F1] before:rounded-md before:h-full before:left-0 before:absolute before:top-0 before:w-0 before:z-[-1] before:transition-all before:duration-300  items-center rounded-md text-[#1a1a1a] flex text-sm font-medium relative no-underline capitalize transition-all duration-300 !cursor-pointer ' +
+                        (navbar 
+                        ? "py-4 px-3  "
+                        : "p-3 ") +
+                        (isActive
+                        ? "active"
+                        : "")
+                      )
+                    }}
+                    // className={
+                    //   navbar 
+                    //   ? "py-4 px-3  "
+                    //   : "p-3 "
+                    // }
+                  >
+                    <img
+                      id={val.itemRoute}
                       className={
                         navbar 
-                        ? "dark:text-white dark:before:bg-[#7A7A7A] active:before:w-full before:bg-[#F1F1F1] before:rounded-md before:h-full before:left-0 before:absolute before:top-0 before:w-0 before:z-[-1] before:transition-all before:duration-300  items-center rounded-md text-[#1a1a1a] flex text-sm font-medium relative no-underline py-4 px-3 transition-all duration-300 !cursor-pointer " + val.activeClass 
-                        : "dark:text-white dark:before:bg-[#7A7A7A] active:before:w-full before:bg-[#F1F1F1] before:rounded-md before:h-full before:left-0 before:absolute before:top-0 before:w-0 before:z-[-1] before:transition-all before:duration-300  items-center rounded-md text-[#1a1a1a] flex text-sm font-medium relative no-underline p-3 transition-all duration-300 !cursor-pointer " + val.activeClass 
+                        ? "fill-none h-5 mr-4 w-5 transition-all duration-500 invert-[.3] dark:invert" 
+                        : "fill-none h-8 mr-4 w-8 transition-all duration-500 invert-[.3] dark:invert" 
                       }
-                    >
-                      <img
-                        id={val.itemRoute}
-                        className={
-                          navbar 
-                          ? "fill-none h-5 mr-4 w-5 transition-all duration-500 invert-[.3] dark:invert" 
-                          : "fill-none h-8 mr-4 w-8 transition-all duration-500 invert-[.3] dark:invert" 
-                        }
-                        src={`../src/components/navbar/assets/img/svg/${val.icon}.svg`}
-                        alt="icon"
-                      />
-                      {/* Only show the tooltip if the navbar is collapsed */}
-                      {!navbar && (
-                        <ReactTooltip
-                          id='navbarTooltip'
-                          place="right"
-                          variant="light"
-                          noArrow="true"
-                          className="light-theme dark:text-white dark:bg-[#121212] dark:bg-opacity-50 dark:text-lg dark:tracking-wide dark:rounded-md"
-                        >
-                          <span>{val.itemName}</span>
-                        </ReactTooltip>
-                       )}
+                      src={`../src/components/navbar/assets/img/svg/${val.icon}.svg`}
+                      alt="icon"
+                    />
+                    {/* Only show the tooltip if the navbar is collapsed */}
+                    {!navbar && (
+                      <ReactTooltip
+                        id='navbarTooltip'
+                        place="right"
+                        variant="light"
+                        noArrow="true"
+                        className="light-theme dark:text-white dark:bg-[#121212] dark:bg-opacity-50 dark:text-lg dark:tracking-wide dark:rounded-md"
+                      >
+                        <span>{val.itemName}</span>
+                      </ReactTooltip>
+                      )}
                       {navbar ? val.itemName: ''}
-                    </a>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </ScrollspyNav>
+                  </NavLink>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
         {/* End .menu */}
         {

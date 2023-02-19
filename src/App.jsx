@@ -1,19 +1,19 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { StylingContext } from './context/StylingContext';
 
-import AnimatedCursor from "react-animated-cursor";		//Animate our cursor
-import ScrollToTop from "./components/ScrollToTop";		//Our component that adds the QoL improvement to scroll tto the top after 250 units
-import AOS from "aos";									//Small library to animate elements on your page as you scroll.
-import "aos/dist/aos.css";
+import AnimatedCursor from "react-animated-cursor";				//Animate our cursor
+import ScrollToTop from "./components/misc/ScrollToTop";		//Our component that adds the QoL improvement to scroll tto the top after 250 units
+import AOS from "aos";											//Small library to animate elements on your page as you scroll.
+import { BrowserRouter as Router, Routes , Route } from 'react-router-dom';
 
-import Intro from './components/Intro';
-import Loader from './components/Loader';
+// Import our needed components
 import Main from './components/Main';
-import BasicModal from './components/modal/BasicModal';
 import VerticalNavbar from "./components/navbar/VerticalNavbar";
 import OptionsNavbar from "./components/navbar/OptionsNavbar";
 
-
+// Import our needed pages
+import Dashboard from './components/pages/dashboard';
+import CardsPage from './components/pages/cards';
 
 function App() {
 	var style = getComputedStyle(document.body);
@@ -66,9 +66,16 @@ function App() {
 		<div className="bg-[#dbdbdb] dark:bg-[#dbdbdb] text-stone-900 dark:text-stone-300 min-h-screen font-inter pl-[320px]">
 			{/* <Intro /> */}
 			<StylingContext.Provider value={{navbar, setNavbar, theme, setTheme}}>
-				<VerticalNavbar />
-				<Main />
-				<OptionsNavbar />
+				<Router>
+					<VerticalNavbar />
+					<Main>
+						<Routes>
+							<Route path="/" element={<Dashboard />} />
+							<Route path="/cards" element={<CardsPage />} />
+						</Routes>
+					</Main>
+					<OptionsNavbar />
+				</Router>
 			</StylingContext.Provider>
 			
 
