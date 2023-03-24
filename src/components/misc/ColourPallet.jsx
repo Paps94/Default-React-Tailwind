@@ -28,7 +28,7 @@ const ColourPallet = () => {
     ];
 
     return (
-        <div id="example-wrapper" className='w-[min(60px,calc(100%_-_2rem))] '>
+        <div id="example-wrapper" className='w-[48px] '>
         <div id="theme-picker-section" className="bg-[rgba(50,50,50,0.2)] backdrop-blur-[3px] border flex items-center flex-col gap-4 p-4 rounded-[0.3rem] border-solid border-[rgba(255,255,255,0.1)]">      
             <div className='theme-picker-group'>
                 <input className="h-[1.8rem] w-[1.8rem] relative cursor-pointer m-0 after:h-[104%] after:w-[104%] before:hidden before:h-[120%] before:w-[120%] before:border-[0.2rem] before:border-solid before:border-[white] checked:before:block" type="radio" name='theme' value="white" onClick={handleColourSwitch} />

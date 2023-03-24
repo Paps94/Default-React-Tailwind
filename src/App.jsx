@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes , Route } from 'react-router-dom';
 // Import our needed components
 import Main from './components/Main';
 import VerticalNavbar from "./components/navbar/VerticalNavbar";
+import VerticalTabNavbar from './components/navbar/VerticalTabNavbar';
 import OptionsNavbar from "./components/navbar/OptionsNavbar";
 
 // Import our needed pages
@@ -67,7 +68,7 @@ function App() {
 			{/* <Intro /> */}
 			<StylingContext.Provider value={{navbar, setNavbar, theme, setTheme}}>
 				<Router>
-					<VerticalNavbar />
+					<VerticalTabNavbar />
 					<Main>
 						<Routes>
 							<Route path="/" element={<Dashboard />} />
