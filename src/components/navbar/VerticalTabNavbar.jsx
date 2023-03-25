@@ -30,6 +30,7 @@ const VerticalTabNavbar = () => {
     const [activeTab, setActiveTab] = useState(0);
     const handleTabClicked = (index) => setActiveTab(index);
 
+    // Header Navbar Icons (Menu & Settings)
     const Icon = ({ icon }) => (
       <img className={
         navbar 
@@ -40,7 +41,9 @@ const VerticalTabNavbar = () => {
         alt="brand"
       />
       );
+    // List of headers
     const tabs = ["menu", "settings"];
+    // Create the header
     const Nav = ({ activeTab, onTabClicked }) => (
       <header className={
         navbar 
@@ -64,7 +67,6 @@ const VerticalTabNavbar = () => {
     );
 
     return (
-    
       <div className={
         navbar 
         ? " shadow-main fixed left-8 top-8 bottom-8 rounded-md transition-all duration-500 w-[320px] z-[96] bg-gradient-to-l from-[#FFAFBD] to-[#FFC3A0] dark:bg-gradient-to-l dark:from-[#414141] dark:to-[#121212] dark:shadow-none" 
@@ -92,20 +94,20 @@ const VerticalTabNavbar = () => {
           : "clear-both float-left h-auto py-6 px-3 w-full"
         }>
           <Nav activeTab={activeTab} onTabClicked={handleTabClicked}/>
-          <ReactCarousel className="react-carousel" showArrows={false} showStatus={false} showThumbs={false} showIndicators={false} swipeable={true} emulateTouch={true} selectedItem={activeTab} onChange={handleTabClicked}>
-            <div>
-            <ul className="list-none m-0 tooltip-parent">
+          <ReactCarousel className="react-carousel shadow-3d dark:shadow-dark-3d rounded-md" showArrows={false} showStatus={false} showThumbs={false} showIndicators={false} swipeable={true} emulateTouch={true} selectedItem={activeTab} onChange={handleTabClicked}>
+            {/* List all menu content */}
+            <ul className="list-none m-0 tooltip-parent w-full">
             {navbarContent.map((val, i) => (
-              <li className="float-left w-full mt-0 mx-0 mb-2" key={i}  data-tooltip-id="navbarTooltip" data-tooltip-content={val.itemName} data-tooltip-place="right">
-                <div className="float-left mt-0 ml-0 mr-0 mb-2 w-full last:mb-0">
+              <li className="float-left w-full h-15 m-0 p-1" key={i}  data-tooltip-id="navbarTooltip" data-tooltip-content={val.itemName} data-tooltip-place="right">
+                <div className="float-left mx-0 my-0 w-full h-full last:mb-0">
                   <NavLink 
                     to={val.itemRoute}
                     className={({isActive}) => {
                       return (
-                        'dark:text-white dark:before:bg-[#7A7A7A] active:before:w-full before:bg-[#F1F1F1] before:rounded-md before:h-full before:left-0 before:absolute before:top-0 before:w-0 before:z-[-1] before:transition-all before:duration-300  items-center rounded-md text-[#1a1a1a] flex text-sm font-medium relative no-underline capitalize transition-all duration-300 !cursor-pointer ' +
+                        'dark:text-white dark:before:bg-[#7A7A7A] active:before:w-full before:bg-[#F1F1F1] before:rounded-md before:h-12 before:left-0 before:absolute before:top-0 before:w-0 before:z-[-1] before:transition-all before:duration-300  items-center rounded-md text-[#1a1a1a] flex text-sm font-medium relative no-underline capitalize transition-all duration-300 !cursor-pointer ' +
                         (navbar 
-                        ? "py-4 px-3  "
-                        : "p-3 ") +
+                        ? "py-4 px-3 w-full "
+                        : "p-0 w-12 h-12 ") +
                         (isActive
                         ? "active"
                         : "")
@@ -117,7 +119,7 @@ const VerticalTabNavbar = () => {
                       className={
                         navbar 
                         ? "fill-none h-5 mr-4 !w-5 transition-all duration-500 invert-[.3] dark:invert" 
-                        : "fill-none h-8 mr-4 !w-8 transition-all duration-500 invert-[.3] dark:invert" 
+                        : "fill-none h-8 m-auto !w-8 transition-all duration-500 invert-[.3] dark:invert" 
                       }
                       src={`../src/components/navbar/assets/img/svg/${val.icon}.svg`}
                       alt="icon"
@@ -138,57 +140,110 @@ const VerticalTabNavbar = () => {
                   </NavLink>
                 </div>
               </li>
-            ))}
-          </ul>
+              ))}
+            </ul>
+            {/* Settings Navbar Option */}
+            <div className="flex flex-col justify-start items-center gap-5 rounded-md w-auto shadow-3d dark:shadow-dark-3d p-0">
+              <ul className="list-none m-0 tooltip-parent w-full">
+                <li className="float-left w-full m-0 p-1 !cursor-pointer" data-tooltip-id="navbarTooltip" data-tooltip-content="{val.itemName}" data-tooltip-place="right" >
+                  <div className="float-left mx-0 my-0 w-full last:mb-0">
+                  <button 
+                      className={'dark:text-white dark:hover:bg-[#7A7A7A] hover:bg-[#F1F1F1] items-center rounded-md text-[#1a1a1a] flex text-sm font-medium relative no-underline capitalize transition-all duration-300 ' +
+                      (navbar 
+                      ? "py-4 px-3 w-full "
+                      : "p-0 m-0 w-12 h-12")}
+                      onClick={handleNavbarToggle}
+
+                    >
+                      <img
+                        id="{val.itemRoute}"
+                        className={
+                          navbar 
+                          ? "fill-none h-5 mr-4 !w-5 transition-all duration-500 invert-[.3] dark:invert" 
+                          : "fill-none h-8 m-auto !w-8 transition-all duration-500 invert-[.3] dark:invert" 
+                        }
+                        src={`../src/components/navbar/assets/img/svg/toggle.svg`}
+                        alt="icon"
+                      />
+                      {/* Only show the tooltip if the navbar is collapsed */}
+                      {!navbar && (
+                        <ReactTooltip
+                          id='navbarTooltip'
+                          place="right"
+                          variant="light"
+                          noArrow="true"
+                          className="light-theme dark:text-white dark:bg-[#121212] dark:bg-opacity-50 dark:text-lg dark:tracking-wide dark:rounded-md"
+                        >
+                          <span>Toggle Navbar</span>
+                        </ReactTooltip>
+                        )}
+                      {navbar ? "Toggle Navbar": ''}
+                    </button>
+                  </div>
+                </li>
+                <li className="float-left w-full m-0 p-1 !cursor-pointer" data-tooltip-id="navbarTooltip" data-tooltip-content="{val.itemName}" data-tooltip-place="right" >
+                  <div className="float-left mx-0 my-0 w-full last:mb-0">
+                  <button 
+                      className={'dark:text-white dark:hover:bg-[#7A7A7A] hover:bg-[#F1F1F1] items-center rounded-md text-[#1a1a1a] flex text-sm font-medium relative no-underline capitalize transition-all duration-300 ' +
+                      (navbar 
+                      ? "py-4 px-3 w-full "
+                      : "p-0 m-0 w-12 h-12")}
+                      onClick={handleThemeSwitch}
+                    >
+                      
+                      <img
+                        className={
+                          navbar 
+                          ? "fill-none h-5 mr-4 !w-5 transition-all duration-500 invert-[.3] dark:invert" 
+                          : "fill-none h-8 m-auto !w-8 transition-all duration-500 invert-[.3] dark:invert" 
+                        }
+                        src={theme == 'dark' 
+                          ? "../src/components/navbar/assets/img/svg/sun.svg"
+                          : "../src/components/navbar/assets/img/svg/moon.svg"
+                        }
+                        alt="icon"
+                      />
+                      {/* Only show the tooltip if the navbar is collapsed */}
+                      {!navbar && (
+                        <ReactTooltip
+                          id='navbarTooltip'
+                          place="right"
+                          variant="light"
+                          noArrow="true"
+                          className="light-theme dark:text-white dark:bg-[#121212] dark:bg-opacity-50 dark:text-lg dark:tracking-wide dark:rounded-md"
+                        >
+                          <span>Toggle Theme</span>
+                        </ReactTooltip>
+                        )}
+                      {navbar 
+                        ? (theme == 'dark' 
+                            ? "Enable Light Mode"
+                            : "Enable Dark Mode"
+                          )
+                        : ''
+                      }
+                    </button>
+                  </div>
+                </li>
+              </ul>
+
+              {/* <button 
+                className="cursor-pointer h-12 w-12 mx-auto p-0 relative bg-black border-none rounded-full dark:bg-[#f5f8fc] z-[99]" 
+                onClick={handleThemeSwitch}
+                data-aos="zoom-in"
+                data-aos-delay="500"
+                data-aos-duration="500"
+              >
+                {theme === 'dark' ? sun : moon}
+              </button> */}
+
+              {/* <ColourPallet /> */}
             </div>
-              {/* Right Navbar Option */}
-              <div className="flex flex-col justify-start items-center gap-5 py-4 rounded-md w-auto">
-                  <button 
-                    className="cursor-pointer h-12 mx-auto p-0 relative w-12 bg-[#1a1a1a] border-none rounded-full dark:bg-[#f5f8fc]" 
-                    onClick={handleNavbarToggle}
-                    data-aos="zoom-in"
-                    data-aos-delay="300"
-                    data-aos-duration="500"
-                  >
-                    <div className={navbar ? "active" : ""}>
-                      <span className="bottom-0 bg-white duration-300 text-white h-0.5 left-0 m-auto absolute right-0 w-6 top-[-15px] dark:bg-[#111319] .active:rotate-45 .active:top-0"></span>
-                      <span className="bottom-0 bg-white duration-300 text-white h-0.5 left-0 m-auto absolute right-0 w-6 top-[1px] dark:bg-[#111319]"></span>
-                      <span className="bottom-[13px] bg-white duration-300 text-white h-0.5 left-0 m-auto absolute right-0 w-6 top-auto dark:bg-[#111319]"></span>
-                    </div>
-                  </button>
-
-                  <button 
-                    className="cursor-pointer h-12 w-12 mx-auto p-0 relative bg-black border-none rounded-full dark:bg-[#f5f8fc] z-[99]" 
-                    onClick={handleThemeSwitch}
-                    data-aos="zoom-in"
-                    data-aos-delay="500"
-                    data-aos-duration="500"
-                  >
-                    {theme === 'dark' ? sun : moon}
-                  </button>
-
-                  <ColourPallet />
-              </div>
           </ReactCarousel>
           
         </div>
         {/* End .menu */}        
       </div>
-      
-    // <aside className="sidebar">
-    //   <div>
-    //     <Nav activeTab={activeTab} onTabClicked={handleTabClicked}/>
-
-    //     <ReactCarousel className="react-carousel" showArrows={false} showStatus={false} showThumbs={false} showIndicators={false} swipeable={true} emulateTouch={true} selectedItem={activeTab} onChange={handleTabClicked}>
-    //       <div>
-    //         Menu
-    //       </div>
-    //       <div>
-    //         Settings
-    //       </div>
-    //     </ReactCarousel>
-    //   </div>
-    // </aside>
     );
 };
 
