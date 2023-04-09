@@ -4,7 +4,7 @@ import { StylingContext } from './context/StylingContext';
 import AnimatedCursor from "react-animated-cursor";				//Animate our cursor
 import ScrollToTop from "./components/misc/ScrollToTop";		//Our component that adds the QoL improvement to scroll tto the top after 250 units
 import AOS from "aos";											//Small library to animate elements on your page as you scroll.
-import { BrowserRouter as Router, Routes , Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 // Import our needed components
 import Main from './components/Main';
@@ -13,6 +13,7 @@ import VerticalTabNavbar from './components/navbar/VerticalTabNavbar';
 import OptionsNavbar from "./components/navbar/OptionsNavbar";
 
 // Import our needed pages
+import NotFound from './components/misc/NotFound';
 import Dashboard from './components/pages/dashboard';
 import CardsPage from './components/pages/cards';
 
@@ -68,20 +69,17 @@ function App() {
 			{/* <Intro /> */}
 			<StylingContext.Provider value={{navbar, setNavbar, theme, setTheme}}>
 				<Router>
-					<VerticalTabNavbar />
+					<VerticalNavbar />
 					<Main>
 						<Routes>
-							<Route path="/" element={<Dashboard />} />
-							<Route path="/cards" element={<CardsPage />} />
+							<Route exact path="/" element={<Dashboard />} />
+							<Route exact path="/cards" element={<CardsPage />} />
+							<Route path="/*" element={<NotFound />} />
 						</Routes>
 					</Main>
 					<OptionsNavbar />
 				</Router>
 			</StylingContext.Provider>
-			
-
-			
-
 
 			{/* <WorkArea /> */}
 			{/* <Loader /> */}
